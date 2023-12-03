@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+        <script>
+            kits= [
+                {
+                    "key": "kit1",
+                    "name": "kit name 1!",
+                    "piece count": "4000 pieces",
+                    "Theme": "History of the Baltic",
+                    "Price per part": "30 cents"
+                },
+                {
+                    "key": "kit2",
+                    "name": "Leif Erikson's Wild Ride: A Beard-tastic Adventure",
+                    "piece count": "420 blaze it pieces",
+                    "Theme": "Viking Shenanigans",
+                    "Price per part": "10 cents (but the sagas are priceless)"
+                },
+                {
+                    "key": "kit3",
+                    "name": "IKEA Invades: Flat-Pack Fury",
+                    "piece count": "Instructions unclear, ended up with a throne",
+                    "Theme": "Modern Mayhem",
+                    "Price per part": "Free with purchase of meatballs (assembly not included)"
+                },
+                {
+                    "key": "kit4",
+                    "name": "Disco Inferno on Ice: Abba's Greatest Hits",
+                    "piece count": "Enough to build a dancing palace",
+                    "Theme": "Eurovision Extravaganza",
+                    "Price per part": "One glitter tear per sequin-covered brick"
+                }
+            ]
+
+            $(document).ready(function(){
+
+                let kit = kits.find(k => k.key=="kit1")
+                $("#name").text(kit.name)
+                $("#var2").text(kit["piece count"])
+                $("#var3").text(kit["Theme"])
+                $("#var4").text(kit["Price per part"])
+
+                $("#kit-select").on("change", function() {
+                    let kit = kits.find(k => k.key==this.value)
+                    $("#name").text(kit.name)
+                    $("#var2").text(kit["piece count"])
+                    $("#var3").text(kit["Theme"])
+                    $("#var4").text(kit["Price per part"])
+                })
+            })
+        </script>
+    </head>
+    <body style="padding:10px;" class="container">
+        <h1>Kit Prediction</h1>
+        <div class="row align-items-start">
+            <select id="kit-select" class="form-select col">
+                <option value="kit1">Kit 1</option>
+                <option value="kit2">Kit 2</option>
+                <option value="kit3">Kit 3</option>
+                <option value="kit4">Kit 4</option>
+            </select>
+            <div class="col">
+                <p style="display:inline">Name:</p>
+                <p style="display:inline" id="name">Default</p>
+                <hr>
+                <p style="display:inline">Piece Count:</p>
+                <p style="display:inline" id="var2">Default</p>
+                <hr>
+                <p style="display:inline">Theme:</p>
+                <p style="display:inline" id="var3">Default</p>
+                <hr>
+                <p style="display:inline">Price per part:</p>
+                <p style="display:inline" id="var4">Default</p>
+            </div>
+        </div>
+    </body>
+</html>
